@@ -1,3 +1,6 @@
-<X-tests.app>
+<x-tests.app>
+  <x-slot name="header">
+    ヘッダ1
+  </x-slot>
 コンポーネントテスト１
-</X-tests.app>
+</x-tests.app>
