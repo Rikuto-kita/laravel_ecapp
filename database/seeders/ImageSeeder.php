@@ -21,18 +21,26 @@ class ImageSeeder extends Seeder
                 'title' => null
             ],
             [
-                'owner_id' => 2,
+                'owner_id' => 1,
                 'filename' => 'seeder2.jpg',
                 'title' => null
-            ],  [
-                'owner_id' => 3,
+            ],  
+            [
+                'owner_id' => 1,
                 'filename' => 'seeder3.jpg',
                 'title' => null
-            ],  [
-                'owner_id' => 4,
+            ], 
+            [
+                'owner_id' => 1,
                 'filename' => 'seeder4.jpg',
                 'title' => null
-            ]]);
+            ],
+            [
+                'owner_id' => 1,
+                'filename' => 'seeder5.jpg',
+                'title' => null
+            ],
+        ]);
                 
     }
 }

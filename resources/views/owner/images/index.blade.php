@@ -20,11 +20,11 @@
                       <div class="border rounded-md p-2 md:p-4">
                           <x-thumbnail :filename="$image->filename" type="products"/>
                           <div class="text-gray-700">{{ $image -> title }}</div>
-                        </div>
+                      </div>
                       </a>
                     </div>
                     @endforeach
-                  </div>
+                </div>
                     {{ $images->links() }}
                 </div>
             </div>
