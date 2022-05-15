@@ -41,7 +41,7 @@
                                 <div class="relative">
                                     <label for="current_quantity" class="leading-7 text-sm text-gray-600">初期在庫 ※必須</label>
                                     <input type="hidden" id="current_quantity" name="current_quantity" value="{{ $quantity }}">
-                                    <div class="w-full bg-gray-100 bg-opacity-50 rounded">{{ $quantity }}</div>
+                                    <div class="w-full bg-gray-100 bg-opacity-50  text-base outline-none text-gray-700 py-1 px-3 leading-8">{{ $quantity }}</div>
                                 </div>
                             </div>
                             <div class="p-2 w-1/2 mx-auto">
