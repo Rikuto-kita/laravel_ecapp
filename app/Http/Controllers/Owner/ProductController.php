@@ -141,7 +141,7 @@ class ProductController extends Controller
         $categories = PrimaryCategory::with('secondary')
         ->get();
 
-        return view('owner.products.index',compact('product','quantity','shops','images','categories'));
+        return view('owner.products.edit',compact('product','quantity','shops','images','categories'));
     }
 
     /**
