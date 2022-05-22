@@ -17,7 +17,10 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/dashboard';
+    // ログイン後のリダイレクト先をオーナーアドミンユーザー別に指定する
+    public const HOME = '/';
+    public const OWNER_HOME = '/owner/dashboard';
+    public const ADMIN_HOME = '/admin/dashboard';
 
     /**
      * The controller namespace for the application.
@@ -33,6 +36,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
+   
     public function boot()
     {
         $this->configureRateLimiting();
@@ -43,7 +47,23 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/api.php'));
 
-            Route::middleware('web')
+ // サービスプロバイダが読み込まれた後の起動をオーナーアドミンユーザー別に指定
+//  prefixでグループ内の各URIのルートの前に指定のURIをつけることができます。
+            Route::prefix('admin')
+                ->as('admin.')
+                ->middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/admin.php'));
+
+            Route::prefix('owner')
+                ->as('owner.')
+                ->middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/owner.php'));
+
+            Route::prefix('/')
+                ->as('user.')
+                ->middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
         });
