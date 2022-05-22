@@ -17,21 +17,23 @@ class ItemController extends Controller
 
         $this->middleware(function ($request, $next) {
 
-            $id = $request->route()->parameter('item'); 
+            $id = $request->route()->parameter('item');
                 if(!is_null($id)){ // null判定
                     $itemId = Product::availableItems()->where('products.id',$id)->exists();
                    
-                    if(!$itemId){ 
-                    abort(404); // 404画面表示 
+                    if(!$itemId){
+                    abort(404); // 404画面表示
                     }
                 }
                 return $next($request);
         });
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::availableItems()->get();
+        $products = Product::availableItems()
+        ->sortOrder($request->sort)
+        ->get();
 
         //  dd($stocks,$products);
         $products = Product::all();
