@@ -24,12 +24,12 @@ class ImageSeeder extends Seeder
                 'owner_id' => 1,
                 'filename' => 'seeder2.jpg',
                 'title' => null
-            ],  
+            ],
             [
                 'owner_id' => 1,
                 'filename' => 'seeder3.jpg',
                 'title' => null
-            ], 
+            ],
             [
                 'owner_id' => 1,
                 'filename' => 'seeder4.jpg',
@@ -41,6 +41,6 @@ class ImageSeeder extends Seeder
                 'title' => null
             ],
         ]);
-                
+
     }
 }
