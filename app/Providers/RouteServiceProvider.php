@@ -19,7 +19,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     // ログイン後のリダイレクト先をオーナーアドミンユーザー別に指定する
     public const HOME = '/';
-    public const OWNER_HOME = '/owner/dashboard';
+    public const OWNER_HOME = '/owner';
     public const ADMIN_HOME = '/admin/dashboard';
 
     /**
