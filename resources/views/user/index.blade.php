@@ -25,7 +25,7 @@
                 </div>
               </div>
               <div class="flex">
-                <!-- <div><span class="text-sm">表示順</span><br>
+                <div><span class="text-sm">表示順</span><br>
                 <select id="sort" name="sort" class="mr-4">
                   <option value="{{ \Constant::SORT_ORDER['recommend']}}"
                       @if(\Request::get('sort') === \Constant::SORT_ORDER['recommend'] ) 
@@ -53,8 +53,8 @@
                       @endif>古い順
                   </option>
                 </select>
-              </div> -->
-                <!-- <div>
+              </div> 
+                <div>
                   <span class="text-sm">表示件数</span><br>
                       <select id="pagination" name="pagination">
                           <option value="20"
@@ -73,7 +73,7 @@
                               @endif>100件
                           </option>
                       </select>
-                </div> -->
+                </div>
 
               </div>
             </div>
@@ -92,10 +92,10 @@
                     <div class="w-1/4 p-2 md:p-4">
                     <a href="{{ route('user.items.show' , ['item' => $product -> id]) }}">
                       <div class="border rounded-md p-2 md:p-4">
-                                                  <!-- filenameがnull(??)だったら空の設定にする -->
-                          <x-thumbnail filename="{{$product->imageFirst->filename ?? '' }}" type="products"/>
+                           <!-- filenameがnull(??)だったら空の設定にする -->
+                          <x-thumbnail filename="{{$product->filename ?? ''}}" type="products" />
                             <div class="mt-4">
-                              <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ $product->category->name }}</h3>
+                              <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">{{ $product->category }}</h3>
                               <h2 class="text-gray-900 title-font text-lg font-medium">{{ $product->name }}</h2>
                               <p class="mt-1">{{ number_format($product->price )}}<span class="text-sm text-gray-700">円(税込)</span></p>
                             </div>
@@ -105,7 +105,10 @@
                     @endforeach
                    
                   </div>
-                  
+                  {{ $products->appends([
+                    'sort'=>\Request::get('sort'),
+                    'pagination'=>\Request::get('pagination'),
+                    ])->links() }}
                 </div>
             </div>
         </div>

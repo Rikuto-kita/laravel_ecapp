@@ -44,10 +44,11 @@ class ItemController extends Controller
         ->selectCategory($request->category ?? '0')
         ->searchKeyword($request->keyword)
         ->sortOrder($request->sort)
-        ->get();
+        ->paginate($request->pagination ?? '20');
+        
 
-        //  dd($stocks,$products);
-        $products = Product::all();
+        // dd($stocks,$products);
+        // $products = Product::all();
 
         return view('user.index', compact('products','categories'));
     }
