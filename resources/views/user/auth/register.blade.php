@@ -1,11 +1,14 @@
 <x-guest-layout>
     <x-auth-card>
+    新規ユーザー登録
         <x-slot name="logo">
+        <div class="w-12">
             <a href="/">
                 <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
             </a>
+        </div>
         </x-slot>
-
+        
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
